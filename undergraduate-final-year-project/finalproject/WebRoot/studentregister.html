@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>student register</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<!--[if IE 6]>
+			<link rel="stylesheet" href="css/ie6.css" type="text/css" />
+		<![endif]-->
+		
+<script type="text/javascript">
+function validate(){
+	//check whether name is empty
+	var flagOne=false;
+	var username = document.getElementsByName("username")[0].value;
+	if (!username==""){flagOne=true;}
+	if(!flagOne){alert("UserName can't be empty");return false;}
+	
+	//check whether password is empty
+	var flagFive=false;
+	var password = document.getElementsByName("password")[0].value;
+	if (!password==""){flagFive=true;}
+	if(!flagFive){alert("Password can't be empty");return false;}
+	
+	//check whether password is empty
+	var flagSix=false;
+	var idnumber = document.getElementsByName("idnumber")[0].value;
+	if (!idnumber==""){flagSix=true;}
+	if(!flagSix){alert("Your student number can't be empty");return false;}
+	
+	//check whether password start with a capital letter
+	var flagTwo = false;
+	if(password.charAt(0)>='A'&&password.charAt(0)<="Z"){flagTwo=true;}
+	if(!flagTwo){alert("Password needs to start with a capital letter");return false;}
+	
+	//check whether password contain numbers
+	var flagThree = false;
+	for(var i=1;i<password.length;i++){
+		index = password.charAt(i);
+		if((index>='9'&&index<='0')&&((index>='Z'&&index<='A')||(index>='z'&&index<='a'))){flagThree=true;break;}
+	}
+	if(flagThree){alert("Password must contain both letters and numbers");return false;}
+	
+	//check whether password's length is more than 10
+	var flagSeven = true;
+	i=password.length;
+	if (i>10){
+	alert("password can't more than ten digits");return false;
+	}
+	
+	//check whether classid is valid
+	var flagSeven = true;
+	i=classid.length;
+	if ((i!=10)||(classid.charAt(1)!=2)){
+	alert("your classid is invalid");return false;
+	}
+	
+	//check whether gender is checked
+	var flagFour = false;
+	var radios = document.getElementsByName("sex");
+	for(var i=0; i<radios.length; i++){
+		if(radios[i].checked){flagFour=true;break;}
+	}
+	if(!flagFour){alert("Gender needs to be checked");return false;}
+	
+	return flagOne||flagTwo||flagThree||flagFour||flagFive||flagSix||flagSeven;
+}
+</script>
+</head>
+<body>
+ <div class="background">
+			<div id="bg">background</div>
+			<div class="page">
+				<div class="sidebar">
+					<div id="logo">
+						<a href="index.html"><img src="images/logo2.png" alt=""/></a>
+					</div>
+					<ul>
+						<li><a href="index.html">HOME</a></li>
+						<li><a href="about.html">ABOUT</a></li>
+						<li class="selected"><a href="welcome.html">LOGIN</a></li>
+												
+					</ul>
+					<div class="connect">
+						<a href="mailto:shy@bupt.edu.cn" class="email">email</a>						
+					</div>				</div>
+				<div class="body">
+					<div class="content">
+						<div id="about">
+							<div>
+								<h2><font color="#000000">student registration</font></h2>
+					
+			<form method="post" action="./register" onSubmit="return validate()">
+			 	<div class="login">Please fill blanks according to the fact</div>
+				<div class="username-text">Username:  <input type="text" name="username" /></div>
+				<div class="password-text">Password:   <input type="password" name="password"  /></div>
+				<div class="password-text">(password must contain both numbers and letters; must start with Capitial letter; no more than 10 digits)</div>
+				<div>Your student number:   <input type="text" name="idnumber"  /></div>
+				<div>Your class number:    <input type="text" name="classid"  /></div>
+				<div>You are <input type="radio" name="sex" value="male" /> Boy or  <input type="radio" name="sex" value="female" /> Girl</div>
+				 <input type="hidden" name="position" value="student" />
+				<input type="submit" name="submit" value="GO" />
+			</form>
+
+								</div>
+							
+						</div>
+					</div>
+					<div class="footer">
+						<ul>
+							<li class="first"><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="register.html">Register</a></li>
+							
+						</ul>
+						<p>Copyright &#169; 2011. Company name all rights reserved</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div></body>
+
+</html>
